@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="register.css">
+    <title>RoboChat</title>
 </head>
 <body>
+    <header>
+        <h1>RoboChat</h1>
+    </header>
     <main>
-        <h1 class="header">RoboChat</h1>
-        <ul id="messages">
-            <li>Test message</li>
-            <br>
-            <li>Hello1!1! Test message 2</li>
-        </ul>
-        <form id="form" action="">
-            <input type="text" id="input" placeholder="Enter message...">
-            <input type="submit" class="submit" value="Send">
+        <form id="reg" action="/api/register">
+            <label for="login">Логін</label>
+            <input type="text" id="login">
+            <label for="password">Пароль</label>
+            <input type="password" id="password">
+            <label for="repeat-password">Повторіть пароль</label>
+            <input type="password" id="repeat-password">
+            <button type="submit">Submit</button>
         </form>
-        
     </main>
+    <form ></form>
 </body>
 </html>
