@@ -65,4 +65,20 @@ function guarded(req, res){
     res.writeHead(404);
     return res.end('Error 404')
 }
+function getCredentionals(req) {
+    const cookies = cookie.parse(req.headers?.cookie || '');
+    const token = cookies?.token;
+    if(!token || !validAuthTokens.includes(token)) return null;
+    const [user_id, login] = token.split('.');
+    if(!user_id || !login) return null;
+    return {user_id, login};
+  }
+  
+io.use((socket, next) => {
+    const cookie = socket.handshake.auth.cookie;
+    const credentionals = getCredentionals(cookie);
+    if(!credentionals){
+        next(new Error("no auth"));
+    }
+});
 server.listen(3000);
